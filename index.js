@@ -15,6 +15,14 @@ var options = {
 };
 
 const dateZon = "uk"
+var bs1s = '',
+    bs2s = '',
+    bs3s = '',
+    bs4s = '',
+    bs1e = '',
+    bs2e = '',
+    bs3e = '',
+    bs4e = ''
 
 var graphArray =[]
 
@@ -31,10 +39,14 @@ graphArray[1]=
 '\n' + '20:00 - 22:00'
 
 graphArray[0]=
-'\n' + '04:00 - 06:00' + 
-'\n' + '10:00 - 12:00' + 
+'\n' + bs1s + '04:00 - 06:00' + bs1e + 
+'\n' + bs2s + '10:00 - 12:00' + bs2e +
+'\n' + bs3s + '16:00 - 18:00' + bs3e +
+'\n' + bs4s + '22:00 - 24:00' + bs4e 
+
+/* '\n' + '10:00 - 12:00' + 
 '\n' + '16:00 - 18:00' + 
-'\n' + '22:00 - 24:00'
+'\n' + '22:00 - 24:00' */
 
 bot.start(ctx => {
     ctx.reply('Вкажіть вашу чергу відключення: ', 
@@ -108,7 +120,7 @@ bot.hears('Черга 1', ctx => {
     var indxGraph1 = (4 + curDate.getDate()) % 3
     var indxGraph2 = (3 + curDate.getDate()) % 3
     var indxGraph3 = (5 + curDate.getDate()) % 3
- 
+
         ctx.replyWithHTML('1-ша черга. Сьогодні - '+ 
         '\n<b>' + curDate.toLocaleString(dateZon,options) + 
         '</b>\n' + 'відключення електроенергії буде:' +
@@ -165,7 +177,8 @@ bot.hears('1', ctx => {
         '\n<b>' + curDate.toLocaleString(dateZon,options) + 
         '</b>\n' + 'відключення електроенергії буде:' +
         '\n' +
-        graphArray[indxGraph1])
+        graphArray[indxGraph1],
+        Markup.keyboard(['Черга 1', 'Черга 2', 'Черга 3', 'Завтра (черга 1)']).resize())
         console.log(curDate)
         console.log(ctx.message)
 })
@@ -181,7 +194,8 @@ bot.hears('2', ctx => {
     '\n<b>' + curDate.toLocaleString(dateZon,options) + 
     '</b>\n' + 'відключення електроенергії буде:' +
     '\n' +
-    graphArray[indxGraph2])
+    graphArray[indxGraph2],
+    Markup.keyboard(['Черга 1', 'Черга 2', 'Черга 3', 'Завтра (черга 2)']).resize())
     console.log(curDate)
     console.log(ctx.message)
 })
@@ -197,7 +211,8 @@ bot.hears('3', ctx => {
     '\n<b>' + curDate.toLocaleString(dateZon,options) + 
     '</b>\n' + 'відключення електроенергії буде:' +
     '\n' +
-    graphArray[indxGraph3])
+    graphArray[indxGraph3],
+    Markup.keyboard(['Черга 1', 'Черга 2', 'Черга 3', 'Завтра (черга 3)']).resize())
     console.log(curDate)
     console.log(ctx.message)
 })
