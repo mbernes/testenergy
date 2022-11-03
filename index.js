@@ -38,7 +38,7 @@ graphArray[0]=
 
 bot.start(ctx => {
     ctx.reply('Вкажіть вашу чергу відключення: ', 
-    Markup.keyboard([['Черга 1'], ['Черга 2'], ['Черга 3']]).resize())
+    Markup.keyboard(['Черга 1', 'Черга 2', 'Черга 3']).resize())
 })
 
 bot.help((ctx) => ctx.reply(text.commands))
@@ -47,6 +47,60 @@ bot.help((ctx) => ctx.reply(text.commands))
     ctx.replyWithHTML('<b>Дата</b>', Markup.keyboard(['Почати']).resize())
 }
 ) */
+
+bot.hears('Завтра (черга 1)', ctx => {
+   
+    var curDate = new Date()
+    var tomorrow = new Date(curDate.getTime() + (24 * 60 * 60 * 1000))
+    var indxGraph1 = (4 + curDate.getDate() + 1 ) % 3
+    var indxGraph2 = (3 + curDate.getDate()) % 3
+    var indxGraph3 = (5 + curDate.getDate()) % 3
+ 
+        ctx.replyWithHTML('1-ша черга. Завтра - '+ 
+        '\n<b>' + tomorrow.toLocaleString(dateZon,options) + 
+        '</b>\n' + 'відключення електроенергії буде:' +
+        '\n' +
+        graphArray[indxGraph1],
+        Markup.keyboard(['Черга 1', 'Черга 2', 'Черга 3']).resize())
+        console.log(curDate)
+        console.log(ctx.message)
+})
+
+bot.hears('Завтра (черга 2)', ctx => {
+   
+    var curDate = new Date()
+    var tomorrow = new Date(curDate.getTime() + (24 * 60 * 60 * 1000))
+    var indxGraph1 = (4 + curDate.getDate()) % 3
+    var indxGraph2 = (3 + curDate.getDate() + 1) % 3
+    var indxGraph3 = (5 + curDate.getDate()) % 3
+ 
+        ctx.replyWithHTML('2-га черга. Завтра - '+ 
+        '\n<b>' + tomorrow.toLocaleString(dateZon,options) + 
+        '</b>\n' + 'відключення електроенергії буде:' +
+        '\n' +
+        graphArray[indxGraph2],
+        Markup.keyboard(['Черга 1', 'Черга 2', 'Черга 3']).resize())
+        console.log(curDate)
+        console.log(ctx.message)
+})
+
+bot.hears('Завтра (черга 3)', ctx => {
+   
+    var curDate = new Date()
+    var tomorrow = new Date(curDate.getTime() + (24 * 60 * 60 * 1000))
+    var indxGraph1 = (4 + curDate.getDate()) % 3
+    var indxGraph2 = (3 + curDate.getDate()) % 3
+    var indxGraph3 = (5 + curDate.getDate() + 1) % 3
+ 
+        ctx.replyWithHTML('3-тя черга. Завтра - '+ 
+        '\n<b>' + tomorrow.toLocaleString(dateZon,options) + 
+        '</b>\n' + 'відключення електроенергії буде:' +
+        '\n' +
+        graphArray[indxGraph3],
+        Markup.keyboard(['Черга 1', 'Черга 2', 'Черга 3']).resize())
+        console.log(curDate)
+        console.log(ctx.message)
+})
 
 bot.hears('Черга 1', ctx => {
    
@@ -59,7 +113,8 @@ bot.hears('Черга 1', ctx => {
         '\n<b>' + curDate.toLocaleString(dateZon,options) + 
         '</b>\n' + 'відключення електроенергії буде:' +
         '\n' +
-        graphArray[indxGraph1])
+        graphArray[indxGraph1],
+        Markup.keyboard(['Черга 1', 'Черга 2', 'Черга 3', 'Завтра (черга 1)']).resize())
         console.log(curDate)
         console.log(ctx.message)
 })
@@ -75,7 +130,8 @@ bot.hears('Черга 2', ctx => {
     '\n<b>' + curDate.toLocaleString(dateZon,options) + 
     '</b>\n' + 'відключення електроенергії буде:' +
     '\n' +
-    graphArray[indxGraph2])
+    graphArray[indxGraph2],
+    Markup.keyboard(['Черга 1', 'Черга 2', 'Черга 3', 'Завтра (черга 2)']).resize())
     console.log(curDate)
     console.log(ctx.message)
 })
@@ -91,7 +147,8 @@ bot.hears('Черга 3', ctx => {
     '\n<b>' + curDate.toLocaleString(dateZon,options) + 
     '</b>\n' + 'відключення електроенергії буде:' +
     '\n' +
-    graphArray[indxGraph3])
+    graphArray[indxGraph3],
+    Markup.keyboard(['Черга 1', 'Черга 2', 'Черга 3', 'Завтра (черга 3)']).resize())
     console.log(curDate)
     console.log(ctx.message)
 })
