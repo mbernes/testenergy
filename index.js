@@ -8,7 +8,7 @@ const text = require('./const')
 
 
 const bot = new Telegraf(process.env.TOKEN)
-var curDate = new Date()
+/* var curDate = new Date()
 var options = {
     year: 'numeric',
     month: 'long',
@@ -16,7 +16,7 @@ var options = {
     weekday: 'long',
   };
 
-var graphArray =[]
+var graphArray =[] */
 
 graphArray[2]= 
 '\n' + '00:00 - 02:00' + 
@@ -36,9 +36,9 @@ graphArray[0]=
 '\n' + '16:00 - 18:00' + 
 '\n' + '22:00 - 24:00'
 
-var indxGraph1 = (4 + curDate.getDate()) % 3
+/* var indxGraph1 = (4 + curDate.getDate()) % 3
 var indxGraph2 = (3 + curDate.getDate()) % 3
-var indxGraph3 = (5 + curDate.getDate()) % 3
+var indxGraph3 = (5 + curDate.getDate()) % 3 */
 
 
 // bot.start(ctx => console.log(ctx.message))
@@ -57,6 +57,19 @@ bot.help((ctx) => ctx.reply(text.commands))
 
 
 bot.hears('Черга 1', ctx => {
+    var curDate = new Date()
+var options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    weekday: 'long',
+  };
+
+var graphArray =[]
+
+var indxGraph1 = (4 + curDate.getDate()) % 3
+var indxGraph2 = (3 + curDate.getDate()) % 3
+var indxGraph3 = (5 + curDate.getDate()) % 3
  
         ctx.reply('1-ша черга. Сьогодні - '+ 
         '\n' + curDate.toLocaleString("ua",options) + 
