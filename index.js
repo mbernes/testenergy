@@ -139,6 +139,8 @@ var indxGraph3 = (5 + curDate.getDate()) % 3
     '\n' + 'відключення електроенергії буде:' +
     '\n' +
     graphArray[indxGraph2])
+    console.log(curDate)
+    console.log(ctx.message)
 })
 
 bot.hears('Черга 3', ctx => {
@@ -179,6 +181,8 @@ var indxGraph3 = (5 + curDate.getDate()) % 3
     '\n' + 'відключення електроенергії буде:' +
     '\n' +
     graphArray[indxGraph3])
+    console.log(curDate)
+    console.log(ctx.message)
 })
 
 
@@ -220,6 +224,8 @@ var indxGraph3 = (5 + curDate.getDate()) % 3
         '\n' + 'відключення електроенергії буде:' +
         '\n' +
         graphArray[indxGraph1])
+        console.log(curDate)
+        console.log(ctx.message)
 
 
 })
@@ -262,6 +268,8 @@ var indxGraph3 = (5 + curDate.getDate()) % 3
     '\n' + 'відключення електроенергії буде:' +
     '\n' +
     graphArray[indxGraph2])
+    console.log(curDate)
+    console.log(ctx.message)
 })
 
 bot.hears('3', ctx => {
@@ -302,6 +310,8 @@ var indxGraph3 = (5 + curDate.getDate()) % 3
     '\n' + 'відключення електроенергії буде:' +
     '\n' +
     graphArray[indxGraph3])
+    console.log(curDate)
+    console.log(ctx.message)
 })
 
 bot.on('text', ctx => {
