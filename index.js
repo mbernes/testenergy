@@ -18,7 +18,7 @@ var options = {
 
 var graphArray =[] */
 
-graphArray[2]= 
+/* graphArray[2]= 
 '\n' + '00:00 - 02:00' + 
 '\n' + '06:00 - 08:00' + 
 '\n' + '12:00 - 14:00' + 
@@ -34,7 +34,7 @@ graphArray[0]=
 '\n' + '04:00 - 06:00' + 
 '\n' + '10:00 - 12:00' + 
 '\n' + '16:00 - 18:00' + 
-'\n' + '22:00 - 24:00'
+'\n' + '22:00 - 24:00' */
 
 /* var indxGraph1 = (4 + curDate.getDate()) % 3
 var indxGraph2 = (3 + curDate.getDate()) % 3
@@ -66,6 +66,24 @@ var options = {
   };
 
 var graphArray =[]
+
+graphArray[2]= 
+'\n' + '00:00 - 02:00' + 
+'\n' + '06:00 - 08:00' + 
+'\n' + '12:00 - 14:00' + 
+'\n' + '18:00 - 20:00'
+
+graphArray[1]=
+'\n' + '02:00 - 04:00' + 
+'\n' + '08:00 - 10:00' + 
+'\n' + '14:00 - 16:00' + 
+'\n' + '20:00 - 22:00'
+
+graphArray[0]=
+'\n' + '04:00 - 06:00' + 
+'\n' + '10:00 - 12:00' + 
+'\n' + '16:00 - 18:00' + 
+'\n' + '22:00 - 24:00'
 
 var indxGraph1 = (4 + curDate.getDate()) % 3
 var indxGraph2 = (3 + curDate.getDate()) % 3
