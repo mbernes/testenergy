@@ -161,8 +161,13 @@ bot.hears('Черга 3', ctx => {
     '\n' +
     graphArray[indxGraph3],
     Markup.keyboard(['Черга 1', 'Черга 2', 'Черга 3', 'Завтра (черга 3)']).resize())
-    console.log(curDate)
+    
     console.log(ctx.message)
+    console.log(curDate.toLocaleString(dateZon,options))
+    console.log(curDate)
+    console.log(curDate.toLocaleTimeString())
+    
+
 })
 
 
