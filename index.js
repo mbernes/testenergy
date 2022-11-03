@@ -55,9 +55,9 @@ bot.hears('Черга 1', ctx => {
     var indxGraph2 = (3 + curDate.getDate()) % 3
     var indxGraph3 = (5 + curDate.getDate()) % 3
  
-        ctx.reply('1-ша черга. Сьогодні - '+ 
-        '\n' + curDate.toLocaleString(dateZon,options) + 
-        '\n' + 'відключення електроенергії буде:' +
+        ctx.replyWithHTML('1-ша черга. Сьогодні - '+ 
+        '\n<b>' + curDate.toLocaleString(dateZon,options) + 
+        '</b>\n' + 'відключення електроенергії буде:' +
         '\n' +
         graphArray[indxGraph1])
         console.log(curDate)
@@ -71,9 +71,9 @@ bot.hears('Черга 2', ctx => {
     var indxGraph2 = (3 + curDate.getDate()) % 3
     var indxGraph3 = (5 + curDate.getDate()) % 3
 
-    ctx.reply('2-га черга. Сьогодні - '+ 
-    '\n' + curDate.toLocaleString(dateZon,options) + 
-    '\n' + 'відключення електроенергії буде:' +
+    ctx.replyWithHTML('2-га черга. Сьогодні - '+ 
+    '\n<b>' + curDate.toLocaleString(dateZon,options) + 
+    '</b>\n' + 'відключення електроенергії буде:' +
     '\n' +
     graphArray[indxGraph2])
     console.log(curDate)
@@ -87,9 +87,9 @@ bot.hears('Черга 3', ctx => {
     var indxGraph2 = (3 + curDate.getDate()) % 3
     var indxGraph3 = (5 + curDate.getDate()) % 3
 
-    ctx.reply('3-тя черга. Сьогодні - '+ 
-    '\n' + curDate.toLocaleString(dateZon,options) + 
-    '\n' + 'відключення електроенергії буде:' +
+    ctx.replyWithHTML('3-тя черга. Сьогодні - '+ 
+    '\n<b>' + curDate.toLocaleString(dateZon,options) + 
+    '</b>\n' + 'відключення електроенергії буде:' +
     '\n' +
     graphArray[indxGraph3])
     console.log(curDate)
@@ -104,9 +104,9 @@ bot.hears('1', ctx => {
     var indxGraph2 = (3 + curDate.getDate()) % 3
     var indxGraph3 = (5 + curDate.getDate()) % 3
 
-        ctx.reply('1-ша черга. Сьогодні - '+ 
-        '\n' + curDate.toLocaleString(dateZon,options) + 
-        '\n' + 'відключення електроенергії буде:' +
+        ctx.replyWithHTML('1-ша черга. Сьогодні - '+ 
+        '\n<b>' + curDate.toLocaleString(dateZon,options) + 
+        '</b>\n' + 'відключення електроенергії буде:' +
         '\n' +
         graphArray[indxGraph1])
         console.log(curDate)
@@ -120,9 +120,9 @@ bot.hears('2', ctx => {
     var indxGraph2 = (3 + curDate.getDate()) % 3
     var indxGraph3 = (5 + curDate.getDate()) % 3
 
-    ctx.reply('2-га черга. Сьогодні - '+ 
-    '\n' + curDate.toLocaleString(dateZon,options) + 
-    '\n' + 'відключення електроенергії буде:' +
+    ctx.replyWithHTML('2-га черга. Сьогодні - '+ 
+    '\n<b>' + curDate.toLocaleString(dateZon,options) + 
+    '</b>\n' + 'відключення електроенергії буде:' +
     '\n' +
     graphArray[indxGraph2])
     console.log(curDate)
@@ -136,9 +136,9 @@ bot.hears('3', ctx => {
     var indxGraph2 = (3 + curDate.getDate()) % 3
     var indxGraph3 = (5 + curDate.getDate()) % 3
     
-    ctx.reply('3-тя черга. Сьогодні - '+ 
-    '\n' + curDate.toLocaleString(dateZon,options) + 
-    '\n' + 'відключення електроенергії буде:' +
+    ctx.replyWithHTML('3-тя черга. Сьогодні - '+ 
+    '\n<b>' + curDate.toLocaleString(dateZon,options) + 
+    '</b>\n' + 'відключення електроенергії буде:' +
     '\n' +
     graphArray[indxGraph3])
     console.log(curDate)
