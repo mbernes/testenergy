@@ -64,6 +64,7 @@ bot.hears('Черга 1', ctx => {
         '\n' +
         graphArray[indxGraph1])
         console.log(curDate)
+        console.log(ctx.message)
 
 
 
