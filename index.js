@@ -57,15 +57,15 @@ bot.help((ctx) => ctx.reply(text.commands))
 
 
 bot.hears('Черга 1', ctx => {
-    try {
+ 
         ctx.reply('1-ша черга. Сьогодні - '+ 
         '\n' + curDate.toLocaleString("ua",options) + 
         '\n' + 'відключення електроенергії буде:' +
         '\n' +
         graphArray[indxGraph1])
-    } catch (e) {
-        console.error(e)
-    }
+        console.log(curDate)
+
+
 
 })
 
