@@ -5,16 +5,14 @@ const {
 require('dotenv').config()
 const text = require('./const')
 
-
-
 const bot = new Telegraf(process.env.TOKEN)
-/* var curDate = new Date()
+
 var options = {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
     weekday: 'long',
-  }; */
+};
 
 const dateZon = "uk"
 
@@ -38,13 +36,6 @@ graphArray[0]=
 '\n' + '16:00 - 18:00' + 
 '\n' + '22:00 - 24:00'
 
-/* var indxGraph1 = (4 + curDate.getDate()) % 3
-var indxGraph2 = (3 + curDate.getDate()) % 3
-var indxGraph3 = (5 + curDate.getDate()) % 3 */
-
-
-// bot.start(ctx => console.log(ctx.message))
-
 bot.start(ctx => {
     ctx.reply('Вкажіть вашу чергу відключення: ', 
     Markup.keyboard([['Черга 1'], ['Черга 2'], ['Черга 3']]).resize())
@@ -57,20 +48,12 @@ bot.help((ctx) => ctx.reply(text.commands))
 }
 ) */
 
-
 bot.hears('Черга 1', ctx => {
+   
     var curDate = new Date()
-var options = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    weekday: 'long',
-  };
-
-
-var indxGraph1 = (4 + curDate.getDate()) % 3
-var indxGraph2 = (3 + curDate.getDate()) % 3
-var indxGraph3 = (5 + curDate.getDate()) % 3
+    var indxGraph1 = (4 + curDate.getDate()) % 3
+    var indxGraph2 = (3 + curDate.getDate()) % 3
+    var indxGraph3 = (5 + curDate.getDate()) % 3
  
         ctx.reply('1-ша черга. Сьогодні - '+ 
         '\n' + curDate.toLocaleString(dateZon,options) + 
@@ -79,25 +62,14 @@ var indxGraph3 = (5 + curDate.getDate()) % 3
         graphArray[indxGraph1])
         console.log(curDate)
         console.log(ctx.message)
-
-
-
 })
 
 bot.hears('Черга 2', ctx => {
+    
     var curDate = new Date()
-var options = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    weekday: 'long',
-  };
-
-
-
-var indxGraph1 = (4 + curDate.getDate()) % 3
-var indxGraph2 = (3 + curDate.getDate()) % 3
-var indxGraph3 = (5 + curDate.getDate()) % 3
+    var indxGraph1 = (4 + curDate.getDate()) % 3
+    var indxGraph2 = (3 + curDate.getDate()) % 3
+    var indxGraph3 = (5 + curDate.getDate()) % 3
 
     ctx.reply('2-га черга. Сьогодні - '+ 
     '\n' + curDate.toLocaleString(dateZon,options) + 
@@ -109,19 +81,11 @@ var indxGraph3 = (5 + curDate.getDate()) % 3
 })
 
 bot.hears('Черга 3', ctx => {
+    
     var curDate = new Date()
-var options = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    weekday: 'long',
-  };
-
-
-
-var indxGraph1 = (4 + curDate.getDate()) % 3
-var indxGraph2 = (3 + curDate.getDate()) % 3
-var indxGraph3 = (5 + curDate.getDate()) % 3
+    var indxGraph1 = (4 + curDate.getDate()) % 3
+    var indxGraph2 = (3 + curDate.getDate()) % 3
+    var indxGraph3 = (5 + curDate.getDate()) % 3
 
     ctx.reply('3-тя черга. Сьогодні - '+ 
     '\n' + curDate.toLocaleString(dateZon,options) + 
@@ -134,19 +98,11 @@ var indxGraph3 = (5 + curDate.getDate()) % 3
 
 
 bot.hears('1', ctx => {
+    
     var curDate = new Date()
-var options = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    weekday: 'long',
-  };
-
-
-
-var indxGraph1 = (4 + curDate.getDate()) % 3
-var indxGraph2 = (3 + curDate.getDate()) % 3
-var indxGraph3 = (5 + curDate.getDate()) % 3
+    var indxGraph1 = (4 + curDate.getDate()) % 3
+    var indxGraph2 = (3 + curDate.getDate()) % 3
+    var indxGraph3 = (5 + curDate.getDate()) % 3
 
         ctx.reply('1-ша черга. Сьогодні - '+ 
         '\n' + curDate.toLocaleString(dateZon,options) + 
@@ -155,24 +111,14 @@ var indxGraph3 = (5 + curDate.getDate()) % 3
         graphArray[indxGraph1])
         console.log(curDate)
         console.log(ctx.message)
-
-
 })
 
 bot.hears('2', ctx => {
+    
     var curDate = new Date()
-var options = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    weekday: 'long',
-  };
-
-
-
-var indxGraph1 = (4 + curDate.getDate()) % 3
-var indxGraph2 = (3 + curDate.getDate()) % 3
-var indxGraph3 = (5 + curDate.getDate()) % 3
+    var indxGraph1 = (4 + curDate.getDate()) % 3
+    var indxGraph2 = (3 + curDate.getDate()) % 3
+    var indxGraph3 = (5 + curDate.getDate()) % 3
 
     ctx.reply('2-га черга. Сьогодні - '+ 
     '\n' + curDate.toLocaleString(dateZon,options) + 
@@ -184,21 +130,11 @@ var indxGraph3 = (5 + curDate.getDate()) % 3
 })
 
 bot.hears('3', ctx => {
+    
     var curDate = new Date()
-var options = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    weekday: 'long',
-  };
-
-var graphArray =[]
-
-
-
-var indxGraph1 = (4 + curDate.getDate()) % 3
-var indxGraph2 = (3 + curDate.getDate()) % 3
-var indxGraph3 = (5 + curDate.getDate()) % 3 
+    var indxGraph1 = (4 + curDate.getDate()) % 3
+    var indxGraph2 = (3 + curDate.getDate()) % 3
+    var indxGraph3 = (5 + curDate.getDate()) % 3
     
     ctx.reply('3-тя черга. Сьогодні - '+ 
     '\n' + curDate.toLocaleString(dateZon,options) + 
