@@ -60,6 +60,13 @@ bot.help((ctx) => ctx.reply(text.commands))
 }
 ) */
 
+bot.command('myline', (ctx) => {
+    ctx.replyWithHTML('https://bit.ly/3heXJCr')
+}
+)
+
+
+
 bot.hears('Завтра (черга 1)', ctx => {
    
     var curDate = new Date()
