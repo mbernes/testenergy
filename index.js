@@ -4,6 +4,36 @@ const {
 } = require('telegraf')
 require('dotenv').config()
 const text = require('./const')
+const fs = require('fs')
+
+function saveToFile(newMessage) {
+   fs.appendFile('users.txt', newMessage, function(error){
+    if(error) throw error; // если возникла ошибка
+                 
+/*     console.log("Запись файла завершена. Содержимое файла:");
+    let data = fs.readFileSync("hello.txt", "utf8");
+    console.log(data);  // выводим считанные данные */
+})
+    
+}
+
+function makeStringMessage(ctxMsg) {
+    const newMsg = ctxMsg.message.message_id +', ' +
+    ctxMsg.message.from.id +', ' +
+    ctxMsg.message.from.is_bot +', ' +
+    ctxMsg.message.from.first_name +', ' +
+    ctxMsg.message.from.last_name +', ' +
+    ctxMsg.message.from.language_code +', ' +
+    ctxMsg.message.chat.id +', ' +
+    ctxMsg.message.chat.first_name +', ' +
+    ctxMsg.message.chat.last_name +', ' +
+    ctxMsg.message.chat.type +', ' +
+    ctxMsg.message.date +', ' +
+    ctxMsg.message.text + '\n'
+
+    return newMsg
+
+}
 
 
 
@@ -187,6 +217,8 @@ bot.hears('Черга 1', ctx => {
         Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3'], ['Завтра (черга 1)', 'Дата (черга 1)']]).resize())
         console.log(curDate)
         console.log(ctx.message)
+
+        saveToFile(curDate + ', ' + makeStringMessage(ctx))
 })
 
 bot.hears('Черга 2', ctx => {
