@@ -219,6 +219,7 @@ bot.hears('Черга 1', ctx => {
         console.log(ctx.message)
 
         saveToFile(curDate + ', ' + makeStringMessage(ctx))
+        console.log(curDate + ', ' + makeStringMessage(ctx))
 })
 
 bot.hears('Черга 2', ctx => {
