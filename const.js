@@ -2,6 +2,6 @@
 const commands = `
 /start - Почати роботу
 /help - Допомога
-/myline - Моя черга`
+/myline - Яка моя черга`
 
 module.exports.commands = commands
