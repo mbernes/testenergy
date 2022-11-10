@@ -19,8 +19,8 @@ const text = require('./const')
 function makeStringMessage(ctxMsg) {
     const newMsg = ctxMsg.message.message_id +', ' +
     ctxMsg.message.from.id +', ' +
-    ctxMsg.message.from.is_bot +', ' +
-    ctxMsg.message.from.username +', ' +
+    ctxMsg.message.from.is_bot +', (' +
+    ctxMsg.message.from.username +'), ' +
     ctxMsg.message.from.first_name +', ' +
     ctxMsg.message.from.last_name +', ' +
     ctxMsg.message.from.language_code +', ' +
