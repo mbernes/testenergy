@@ -70,7 +70,7 @@ function connectRedisDB() {
 
 //function saveToFile(newMessage) {
 //  fs.appendFile('users.txt', newMessage, function(error){
-//    if(error) throw error; // если возникла ошибка
+//   if(error) throw error; // если возникла ошибка
                  
 /*     console.log("Запись файла завершена. Содержимое файла:");
     let data = fs.readFileSync("hello.txt", "utf8");
@@ -133,6 +133,16 @@ function makeStringMessage(ctxMsg) {
     
   }
   
+  function consoleMessage(curDate,ctx) {
+
+    console.log(curDate)
+    console.log(ctx.message)
+    console.log(curDate + ', ' + makeStringMessage(ctx))
+    
+  }
+
+
+
   var options = {
     year: 'numeric',
     month: 'long',
@@ -199,6 +209,7 @@ function makeStringMessage(ctxMsg) {
   '\n' + '22:00 - 00:30'
   
   graphArray[2]=
+  '\n' + '00:30 - 03:00' +
   '\n' + '05:30 - 10:00' + 
   '\n' + '12:00 - 16:00' + 
   '\n' + '18:00 - 22:00' 
@@ -316,14 +327,19 @@ function makeStringMessage(ctxMsg) {
   
   
   bot.start(ctx => {
+    var curDate = new Date()
+
     ctx.reply('Вкажіть вашу чергу відключення: ', 
     Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3']]).resize())
     sendMessageCommand(ctx)
+    consoleMessage(curDate,ctx)
+    //saveToFile(makeStringMessage(ctx)+' '+curDate+'\n')
   })
   
   bot.help((ctx) => {
     ctx.reply(text.commands)
     sendMessageCommand(ctx)
+    consoleMessage('',ctx)
     
   
   /* bot.command('today', (ctx) => {
@@ -336,6 +352,7 @@ function makeStringMessage(ctxMsg) {
   bot.command('myline', (ctx) => {
     ctx.replyWithHTML('Перелік адрес для визначення черги відключення'+'\n'+'https://bit.ly/3GR93PQ')
     sendMessageCommand(ctx)
+    consoleMessage('',ctx)
   }
   )
   
@@ -378,9 +395,9 @@ function makeStringMessage(ctxMsg) {
         '\n' +
         graphArray[indxGraph1],
         Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3']]).resize())
-        //console.log(curDate)
-        //console.log(ctx.message)
+        
         sendMessageHears(ctx,curDate)
+        consoleMessage(curDate,ctx)
   })
   
   bot.hears('Завтра (черга 2)', ctx => {
@@ -397,8 +414,7 @@ function makeStringMessage(ctxMsg) {
         '\n' +
         graphArray[indxGraph2],
         Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3']]).resize())
-        //console.log(curDate)
-        //console.log(ctx.message)
+        consoleMessage(curDate,ctx)
         sendMessageHears(ctx,curDate)})
   
   bot.hears('Завтра (черга 3)', ctx => {
@@ -415,8 +431,7 @@ function makeStringMessage(ctxMsg) {
         '\n' +
         graphArray[indxGraph3],
         Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3']]).resize())
-        //console.log(curDate)
-        //console.log(ctx.message)
+        consoleMessage(curDate,ctx)
         sendMessageHears(ctx,curDate)
   })
   
@@ -433,11 +448,11 @@ function makeStringMessage(ctxMsg) {
         '\n' +
         graphArray[indxGraph1],
         Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3'], ['Завтра (черга 1)', 'Дата (черга 1)']]).resize())
-        //console.log(curDate)
-        //console.log(ctx.message)
+        
   
         //saveToFile(curDate + ', ' + makeStringMessage(ctx))
         //console.log(curDate + ', ' + makeStringMessage(ctx))
+        consoleMessage(curDate,ctx)
         sendMessageHears(ctx,curDate)
   })
   
@@ -454,8 +469,7 @@ function makeStringMessage(ctxMsg) {
     '\n' +
     graphArray[indxGraph2],
     Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3'], ['Завтра (черга 2)', 'Дата (черга 2)']]).resize())
-    //console.log(curDate)
-    //console.log(ctx.message)
+    consoleMessage(curDate,ctx)
     sendMessageHears(ctx,curDate)
   })
   
@@ -473,10 +487,7 @@ function makeStringMessage(ctxMsg) {
     graphArray[indxGraph3],
     Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3'], ['Завтра (черга 3)', 'Дата (черга 3)']]).resize())
     
-    //console.log(ctx.message)
-    //console.log(curDate.toLocaleString(dateZon,options))
-    //console.log(curDate)
-    //console.log(curDate.toLocaleTimeString())
+    consoleMessage(curDate,ctx)
     sendMessageHears(ctx,curDate)
     
   
@@ -497,8 +508,7 @@ function makeStringMessage(ctxMsg) {
         '\n' +
         graphArray[indxGraph1],
         Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3'], ['Завтра (черга 1)', 'Дата (черга 1)']]).resize())
-        console.log(curDate)
-        console.log(ctx.message)
+        consoleMessage(curDate,ctx)
         sendMessageHears(ctx,curDate)
     }
   })
@@ -516,8 +526,7 @@ function makeStringMessage(ctxMsg) {
     '\n' +
     graphArray[indxGraph2],
     Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3'], ['Завтра (черга 2)', 'Дата (черга 2)']]).resize())
-    console.log(curDate)
-    console.log(ctx.message)
+    consoleMessage(curDate,ctx)
     sendMessageHears(ctx,curDate)
     } 
   })
@@ -535,8 +544,7 @@ function makeStringMessage(ctxMsg) {
     '\n' +
     graphArray[indxGraph3],
     Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3'], ['Завтра (черга 3)', 'Дата (черга 3)']]).resize())
-    console.log(curDate)
-    console.log(ctx.message)
+    consoleMessage(curDate,ctx)
     sendMessageHears(ctx,curDate)
    } 
   }) */
@@ -576,8 +584,7 @@ function makeStringMessage(ctxMsg) {
         graphArray[indxGraph],
         Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3']]).resize())
         lineDate = 0
-        //console.log(curDate)
-        //console.log(ctx.message)
+        consoleMessage(curDate,ctx)
         //console.log(plusDays) 
         sendMessageHears(ctx,curDate)
     }
