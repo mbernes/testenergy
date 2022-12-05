@@ -124,20 +124,20 @@ function makeStringMessage(ctxMsg) {
   }
   
   function sendMessageCommand(ctxOriginal) {
-   // bot.telegram.sendMessage(331530824, logDateString + makeStringMessage(ctxOriginal))
+    bot.telegram.sendMessage(331530824, logDateString + makeStringMessage(ctxOriginal))
     
   }
   
   function sendMessageHears(ctxOriginal, curDateOriginal) {
-  //  bot.telegram.sendMessage(331530824,curDateOriginal.toLocaleString(dateZon,options)+'\n'+curDateOriginal.toLocaleTimeString()+'\n'+makeStringMessage(ctxOriginal))
+    bot.telegram.sendMessage(331530824,curDateOriginal.toLocaleString(dateZon,options)+'\n'+curDateOriginal.toLocaleTimeString()+'\n'+makeStringMessage(ctxOriginal))
     
   }
   
   function consoleMessage(curDate,ctx) {
 
-    console.log(curDate)
-    console.log(ctx.message)
-    console.log(curDate + ', ' + makeStringMessage(ctx))
+  //  console.log(curDate)
+  //  console.log(ctx.message)
+  //  console.log(curDate + ', ' + makeStringMessage(ctx))
     
   }
 
@@ -606,8 +606,8 @@ function makeStringMessage(ctxMsg) {
     ctx.reply('Ви змінили повідомлення')
     sendMessageCommand(ctx)
   })
-  
-  
+
+ 
   
   
 
