@@ -124,20 +124,20 @@ function makeStringMessage(ctxMsg) {
   }
   
   function sendMessageCommand(ctxOriginal) {
-    bot.telegram.sendMessage(331530824, logDateString + makeStringMessage(ctxOriginal))
+   // bot.telegram.sendMessage(331530824, logDateString + makeStringMessage(ctxOriginal))
     
   }
   
   function sendMessageHears(ctxOriginal, curDateOriginal) {
-    bot.telegram.sendMessage(331530824,curDateOriginal.toLocaleString(dateZon,options)+'\n'+curDateOriginal.toLocaleTimeString()+'\n'+makeStringMessage(ctxOriginal))
+   // bot.telegram.sendMessage(331530824,curDateOriginal.toLocaleString(dateZon,options)+'\n'+curDateOriginal.toLocaleTimeString()+'\n'+makeStringMessage(ctxOriginal))
     
   }
   
   function consoleMessage(curDate,ctx) {
 
-  //  console.log(curDate)
-  //  console.log(ctx.message)
-  //  console.log(curDate + ', ' + makeStringMessage(ctx))
+    console.log(curDate)
+    console.log(ctx.message)
+    console.log(curDate + ', ' + makeStringMessage(ctx))
     
   }
 
@@ -165,56 +165,76 @@ function makeStringMessage(ctxMsg) {
   var lineDate = 0
   
   var graphArray =[]
+  var graphArrayStd =[]
   
   
   
-  
-  /*
+ 
   // Грудень 2022
 
-  graphArray[0]= 
-  '\n' + '00:30 - 03:00' + 
-  '\n' + '08:00 - 10:00' + 
-  '\n' + '14:00 - 16:00' + 
-  '\n' + '20:00 - 22:00'
+  graphArrayStd[0]= 
+  '\n' + '00:30 - 03:00' + '\n' +
+  '\n' + '08:00 - 10:00' + '\n' +
+  '\n' + '14:00 - 16:00' + '\n' +
+  '\n' + '20:00 - 22:00' + '\n' +
+  '. '
   
-  graphArray[1]=
-  '\n' + '03:00 - 05:30' + 
-  '\n' + '10:00 - 12:00' + 
-  '\n' + '16:00 - 18:00' + 
-  '\n' + '22:00 - 00:30'
+  graphArrayStd[1]=
+  '\n' + '03:00 - 05:30' + '\n' +
+  '\n' + '10:00 - 12:00' + '\n' +
+  '\n' + '16:00 - 18:00' + '\n' +
+  '\n' + '22:00 - 00:30' + '\n'
   
-  graphArray[2]=
-  '\n' + '05:30 - 08:00' + 
-  '\n' + '12:00 - 14:00' + 
-  '\n' + '18:00 - 20:00' 
+  graphArrayStd[2]=
+  '\n' +
+  '\n' + '05:30 - 08:00' + '\n' +
+  '\n' + '12:00 - 14:00' + '\n' +
+  '\n' + '18:00 - 20:00' + '\n' +
+  '. '
   
-  const txtAvar = ''
+  const txtAvarStd = ''
   
-  */
+
 
 
   // Грудень 2022 ГПВ (4- 2+)
 
   graphArray[0]= 
-  '\n' + '00:30 - 05:30' + 
-  '\n' + '08:00 - 12:00' + 
-  '\n' + '14:00 - 18:00' + 
-  '\n' + '20:00 - 00:30'
+  '\n' + '00:30 - 03:00' + 
+  '\n' + '03:00 - 05:30' + ' (додатково)' +
+  '\n' + '08:00 - 10:00' +  
+  '\n' + '10:00 - 12:00' + ' (додатково)' +
+  '\n' + '14:00 - 16:00' + 
+  '\n' + '16:00 - 18:00' + ' (додатково)' +
+  '\n' + '20:00 - 22:00' +
+  '\n' + '22:00 - 00:30' + ' (додатково)'
   
-  graphArray[1]=
+/*   graphArray[1]=
   '\n' + '03:00 - 08:00' + 
   '\n' + '10:00 - 14:00' + 
   '\n' + '16:00 - 20:00' + 
-  '\n' + '22:00 - 00:30'
+  '\n' + '22:00 - 00:30' */
+
+  graphArray[1]=
+  '\n' + '03:00 - 05:30' + 
+  '\n' + '05:30 - 08:00' + ' (додатково)' +
+  '\n' + '10:00 - 12:00' +  
+  '\n' + '12:00 - 14:00' + ' (додатково)' +
+  '\n' + '16:00 - 18:00' + 
+  '\n' + '18:00 - 20:00' + ' (додатково)' +
+  '\n' + '22:00 - 00:30' 
+
   
   graphArray[2]=
-  '\n' + '00:30 - 03:00' +
-  '\n' + '05:30 - 10:00' + 
-  '\n' + '12:00 - 16:00' + 
-  '\n' + '18:00 - 22:00' 
+  '\n' + '00:30 - 03:00' + ' (додатково)' +
+  '\n' + '05:30 - 08:00' + 
+  '\n' + '08:00 - 10:00' + ' (додатково)' +
+  '\n' + '12:00 - 14:00' +
+  '\n' + '14:00 - 16:00' + ' (додатково)' +
+  '\n' + '18:00 - 20:00' + 
+  '\n' + '20:00 - 22:00' + ' (додатково)'
   
-  const txtAvar='\u26A1<b> УВАГА! Застосовано ГПВ! </b>\u26A1\n(4 години \"-\" 2 години \"+\")\n\n'
+  const txtAvar='' //`\u26A1<b> УВАГА! Застосовано ГПВ! </b>\u26A1\n(4 години \"-\" 2 години \"+\")\n\n`
   
  
 
@@ -350,7 +370,7 @@ function makeStringMessage(ctxMsg) {
   } )
   
   bot.command('myline', (ctx) => {
-    ctx.replyWithHTML('Перелік адрес для визначення черги відключення'+'\n'+'https://bit.ly/3GR93PQ')
+    ctx.replyWithHTML('Перелік адрес для визначення черги відключення'+'\n'+'https://www.poe.pl.ua/wp-content/uploads/2022/12/HPV-05_12_22.pdf')
     sendMessageCommand(ctx)
     consoleMessage('',ctx)
   }
@@ -388,16 +408,29 @@ function makeStringMessage(ctxMsg) {
     var indxGraph1 = (4 + curDate.getDate() + 1 ) % 3
     var indxGraph2 = (5 + curDate.getDate()) % 3
     var indxGraph3 = (6 + curDate.getDate()) % 3
-  
-        ctx.replyWithHTML('1-ша черга. Завтра - '+ 
-        '\n<b>' + tomorrow.toLocaleString(dateZon,options) + 
-        '</b>\n' + 'відключення електроенергії буде:' +
-        '\n' +
-        graphArray[indxGraph1],
-        Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3']]).resize())
-        
-        sendMessageHears(ctx,curDate)
+
+    globIndex=indxGraph1
+    avarGrafik=false
+
+    globMessage=txtAvar+'1-ша черга. Завтра - '+ 
+    '\n' + tomorrow.toLocaleString(dateZon,options) + 
+    '\n' + 'відключення електроенергії буде:' +
+    '\n' 
+
+    async function messageOne() {
+      await ctx.replyWithHTML("Черга 1",
+      Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3']]).resize()
+      //yesNoKeyboard()
+      )
+      ctx.replyWithHTML(globMessage+graphArrayStd[indxGraph1],yesNoKeyboard()
+      )
+    }
+        messageOne();
+
+        console.log(ctx.message)
         consoleMessage(curDate,ctx)
+        sendMessageHears(ctx,curDate)
+  
   })
   
   bot.hears('Завтра (черга 2)', ctx => {
@@ -408,14 +441,28 @@ function makeStringMessage(ctxMsg) {
     var indxGraph2 = (5 + curDate.getDate() + 1) % 3
     var indxGraph3 = (6 + curDate.getDate()) % 3
   
-        ctx.replyWithHTML('2-га черга. Завтра - '+ 
-        '\n<b>' + tomorrow.toLocaleString(dateZon,options) + 
-        '</b>\n' + 'відключення електроенергії буде:' +
-        '\n' +
-        graphArray[indxGraph2],
-        Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3']]).resize())
+    globIndex=indxGraph2
+    avarGrafik=false
+
+    globMessage=txtAvar+'2-га черга. Завтра - '+ 
+    '\n' + tomorrow.toLocaleString(dateZon,options) + 
+    '\n' + 'відключення електроенергії буде:' +
+    '\n' 
+
+    async function messageOne() {
+      await ctx.replyWithHTML("Черга 2",
+      Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3']]).resize()
+      //yesNoKeyboard()
+      )
+      ctx.replyWithHTML(globMessage+graphArrayStd[indxGraph2],yesNoKeyboard()
+      )
+    }
+        messageOne();
+
+        console.log(ctx.message)
         consoleMessage(curDate,ctx)
-        sendMessageHears(ctx,curDate)})
+        sendMessageHears(ctx,curDate)
+  })
   
   bot.hears('Завтра (черга 3)', ctx => {
    
@@ -425,29 +472,151 @@ function makeStringMessage(ctxMsg) {
     var indxGraph2 = (5 + curDate.getDate()) % 3
     var indxGraph3 = (6 + curDate.getDate() + 1) % 3
   
-        ctx.replyWithHTML('3-тя черга. Завтра - '+ 
-        '\n<b>' + tomorrow.toLocaleString(dateZon,options) + 
-        '</b>\n' + 'відключення електроенергії буде:' +
-        '\n' +
-        graphArray[indxGraph3],
-        Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3']]).resize())
+    globIndex=indxGraph3
+    avarGrafik=false
+
+    globMessage=txtAvar+'3-тя черга. Завтра - '+ 
+    '\n' + tomorrow.toLocaleString(dateZon,options) + 
+    '\n' + 'відключення електроенергії буде:' +
+    '\n' 
+
+    async function messageOne() {
+      await ctx.replyWithHTML("Черга 3",
+      Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3']]).resize()
+      //yesNoKeyboard()
+      )
+      ctx.replyWithHTML(globMessage+graphArrayStd[indxGraph3],yesNoKeyboard()
+      )
+    }
+        messageOne();
+
+        console.log(ctx.message)
         consoleMessage(curDate,ctx)
         sendMessageHears(ctx,curDate)
   })
+
+
+// Keyboard BLOCK
+
+var avarGrafik
+var globMessage
+var globIndex
+
+ function yesNoKeyboard() {
+
+  if (avarGrafik) {
+
+    avarGrafik=!avarGrafik
+    return Markup.inlineKeyboard([
+      Markup.button.callback(`\u26A1 ТИСНИ для (2- 4+) \u26A1`, 'std'),
+      //Markup.button.callback('2- 4+', 'no')
+  ], {columns: 1})
+  
+  }
+  else {
+    avarGrafik=!avarGrafik;
+    return Markup.inlineKeyboard([
+      Markup.button.callback(`\u26A1 ТИСНИ для (4- 2+) \u26A1`, 'avar'),
+      //Markup.button.callback('2- 4+', 'no')
+  ], {columns: 1})
+  
+
+  }
+  
+
+  }
+
+  bot.action(['std', 'avar'], ctx => {
+/*     var curDate = new Date()
+    var indxGraph1 = (4 + curDate.getDate()) % 3
+    var indxGraph2 = (5 + curDate.getDate()) % 3
+    var indxGraph3 = (6 + curDate.getDate()) % 3 */
+  
+
+    if (ctx.callbackQuery.data === 'avar') {
+
+        ctx.editMessageText(globMessage+graphArray[globIndex],yesNoKeyboard())
+        
+        //consoleMessage(curDate,ctx);
+        console.log(ctx.message)
+        
+    } else {
+      ctx.editMessageText(globMessage+graphArrayStd[globIndex],yesNoKeyboard())
+
+      //consoleMessage(curDate,ctx);
+      console.log(ctx.message)
+    }
+    
+})
+
+
+
+
+
   
   bot.hears('Черга 1', ctx => {
-   
+      
     var curDate = new Date()
     var indxGraph1 = (4 + curDate.getDate()) % 3
     var indxGraph2 = (5 + curDate.getDate()) % 3
     var indxGraph3 = (6 + curDate.getDate()) % 3
-  
-        ctx.replyWithHTML(txtAvar+'1-ша черга. Сьогодні - '+ 
-        '\n<b>' + curDate.toLocaleString(dateZon,options) + 
-        '</b>\n' + 'відключення електроенергії буде:' +
-        '\n' +
-        graphArray[indxGraph1],
-        Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3'], ['Завтра (черга 1)', 'Дата (черга 1)']]).resize())
+
+    avarGrafik=false
+    globIndex=indxGraph1
+    globMessage=txtAvar+'1-ша черга. Сьогодні - '+ 
+    '\n' + curDate.toLocaleString(dateZon,options) + 
+    '\n' + 'відключення електроенергії буде:' +
+    '\n' 
+
+    async function messageOne() {
+      await ctx.replyWithHTML("Черга 1",
+      Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3'], ['Завтра (черга 1)', 'Дата (черга 1)']]).resize()
+      //yesNoKeyboard()
+      )
+      ctx.replyWithHTML(globMessage+graphArrayStd[indxGraph1],yesNoKeyboard()
+      )
+    }
+        messageOne();
+
+        console.log(ctx.message)
+        consoleMessage(curDate,ctx)
+        sendMessageHears(ctx,curDate)
+          
+        //saveToFile(curDate + ', ' + makeStringMessage(ctx))
+        //console.log(curDate + ', ' + makeStringMessage(ctx))
+
+  })
+
+  bot.hears('Черга 2', ctx => {
+   
+    
+    var curDate = new Date()
+    var indxGraph1 = (4 + curDate.getDate()) % 3
+    var indxGraph2 = (5 + curDate.getDate()) % 3
+    var indxGraph3 = (6 + curDate.getDate()) % 3
+
+    avarGrafik=false
+    globIndex=indxGraph2
+    globMessage=txtAvar+'2-га черга. Сьогодні - '+ 
+    '\n' + curDate.toLocaleString(dateZon,options) + 
+    '\n' + 'відключення електроенергії буде:' +
+    '\n' 
+
+
+    async function messageOne() {
+      await ctx.replyWithHTML("Черга 2",
+      Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3'], ['Завтра (черга 2)', 'Дата (черга 2)']]).resize()
+      //yesNoKeyboard()
+      )
+      
+      ctx.replyWithHTML(globMessage+graphArrayStd[indxGraph2],yesNoKeyboard()
+      )
+
+    }
+        messageOne();
+
+        //consoleMessage(curDate,ctx);
+        console.log(ctx.message)
         
   
         //saveToFile(curDate + ', ' + makeStringMessage(ctx))
@@ -456,43 +625,45 @@ function makeStringMessage(ctxMsg) {
         sendMessageHears(ctx,curDate)
   })
   
-  bot.hears('Черга 2', ctx => {
-    
-    var curDate = new Date()
-    var indxGraph1 = (4 + curDate.getDate()) % 3
-    var indxGraph2 = (5 + curDate.getDate()) % 3
-    var indxGraph3 = (6 + curDate.getDate()) % 3
-  
-    ctx.replyWithHTML(txtAvar+'2-га черга. Сьогодні - '+ 
-    '\n<b>' + curDate.toLocaleString(dateZon,options) + 
-    '</b>\n' + 'відключення електроенергії буде:' +
-    '\n' +
-    graphArray[indxGraph2],
-    Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3'], ['Завтра (черга 2)', 'Дата (черга 2)']]).resize())
-    consoleMessage(curDate,ctx)
-    sendMessageHears(ctx,curDate)
-  })
-  
   bot.hears('Черга 3', ctx => {
+   
     
     var curDate = new Date()
     var indxGraph1 = (4 + curDate.getDate()) % 3
     var indxGraph2 = (5 + curDate.getDate()) % 3
     var indxGraph3 = (6 + curDate.getDate()) % 3
+
+    avarGrafik=false
+    globIndex=indxGraph3
+    globMessage=txtAvar+'3-тя черга. Сьогодні - '+ 
+    '\n' + curDate.toLocaleString(dateZon,options) + 
+    '\n' + 'відключення електроенергії буде:' +
+    '\n' 
+
+
+    async function messageOne() {
+      await ctx.replyWithHTML("Черга 3",
+      Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3'], ['Завтра (черга 3)', 'Дата (черга 3)']]).resize()
+      //yesNoKeyboard()
+      )
+      
+      ctx.replyWithHTML(globMessage+graphArrayStd[indxGraph3],yesNoKeyboard()
+      )
+
+    }
+        messageOne();
+
+        //consoleMessage(curDate,ctx);
+        console.log(ctx.message)
+        
   
-    ctx.replyWithHTML(txtAvar+'3-тя черга. Сьогодні - '+ 
-    '\n<b>' + curDate.toLocaleString(dateZon,options) + 
-    '</b>\n' + 'відключення електроенергії буде:' +
-    '\n' +
-    graphArray[indxGraph3],
-    Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3'], ['Завтра (черга 3)', 'Дата (черга 3)']]).resize())
-    
-    consoleMessage(curDate,ctx)
-    sendMessageHears(ctx,curDate)
-    
-  
+        //saveToFile(curDate + ', ' + makeStringMessage(ctx))
+        //console.log(curDate + ', ' + makeStringMessage(ctx))
+        consoleMessage(curDate,ctx)
+        sendMessageHears(ctx,curDate)
   })
-  
+
+ 
   
   /*bot.hears('1', ctx => {
     
@@ -577,7 +748,36 @@ function makeStringMessage(ctxMsg) {
     }
   
     if (lineDate != 0) {
-        ctx.replyWithHTML(lineDate + ' черга. Дата - '+ 
+
+      avarGrafik=false
+    globIndex=indxGraph
+    globMessage=txtAvar+lineDate + ' черга. Дата - '+ 
+    '\n' + anyDate.toLocaleString(dateZon,options) + 
+    '\n' + 'відключення електроенергії буде:' +
+    '\n' 
+
+    async function messageOne() {
+      await ctx.replyWithHTML("Черга "+lineDate,
+      Markup.keyboard([['Черга 1', 'Черга 2', 'Черга 3']]).resize()
+      //yesNoKeyboard()
+      )
+      ctx.replyWithHTML(globMessage+graphArrayStd[indxGraph],yesNoKeyboard()
+      )
+    }
+        messageOne();
+        lineDate = 0
+
+        console.log(ctx.message)
+        consoleMessage(curDate,ctx)
+        sendMessageHears(ctx,curDate)
+
+
+
+
+
+
+
+/*         ctx.replyWithHTML(lineDate + ' черга. Дата - '+ 
         '\n<b>' + anyDate.toLocaleString(dateZon,options) + 
         '</b>\n' + 'відключення електроенергії буде:' +
         '\n' +
@@ -586,7 +786,7 @@ function makeStringMessage(ctxMsg) {
         lineDate = 0
         consoleMessage(curDate,ctx)
         //console.log(plusDays) 
-        sendMessageHears(ctx,curDate)
+        sendMessageHears(ctx,curDate) */
     }
   
   }
